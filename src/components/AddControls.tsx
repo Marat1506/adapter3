@@ -1,7 +1,7 @@
 import React from 'react';
-
+type AdType = "interstitial" | "reward";
 interface AdControlsProps {
-    showAd: (type: string) => void;
+    showAd: (type: AdType) => void;
     isReady: boolean;
 }
 

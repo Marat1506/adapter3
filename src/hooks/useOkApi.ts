@@ -44,7 +44,7 @@ export function useOkApi() {
     }
 
     const saveData = async () => {
-        if (!isAdapterReady || !adapter) {
+        if (!isReady || !adapter) {
             console.warn("save (mock)")
             return
         }
@@ -59,7 +59,7 @@ export function useOkApi() {
     }
 
     const loadData = async () => {
-        if (!isAdapterReady || !adapter) {
+        if (!isReady || !adapter) {
             console.warn("load (mock)")
             return null
         }
