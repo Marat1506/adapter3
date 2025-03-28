@@ -19,6 +19,7 @@ function App() {
     const initAdapter = async () => {
       const adapter = new OkAdapter()
       try {
+
         await adapter.init()
         adapterRef.current = adapter
         setIsAdapterReady(true)

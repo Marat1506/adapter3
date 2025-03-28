@@ -5,9 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <script type="text/javascript" src="//api.ok.ru/js/fapi5.js" defer="defer"></script>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      function includeScript(src) {
+        if (!src) return;
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === src) return;
+        }
+        const script = document.createElement("script");
+        script.src = src;
+        document.head.appendChild(script);
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
