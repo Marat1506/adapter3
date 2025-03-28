@@ -19,44 +19,60 @@ export function useOkApi() {
         }
     }
 
-    const showAd = async (adType: 'interstitial' | 'reward') => {
-        if (!adapter) return
+    const showAd = async (adType: AdType) => {
+        if (!isAdapterReady || !adapterRef.current) {
+            console.warn(`[warning] Адаптер не готов: Показ ${adType} рекламы`)
+            return
+        }
 
         try {
             if (adType === 'reward') {
-                const watched = await adapter.showRewardedAds()
-                console.log(watched ? 'Награда получена!' : 'Реклама закрыта до завершения')
+                const watched = await adapterRef.current.showRewardedAds()
+                lastAdTimeRef.current = Date.now()
+                console.log("watched = ", watched)
+                console.log(watched ? '[success] Награда получена!' : '[warning] Реклама закрыта до завершения')
             } else {
-                await adapter.showFullscreenAds()
-                console.log('Реклама показана')
+                const full = await adapterRef.current.showFullscreenAds()
+                console.log("showFullscreenAds = ", full)
+                lastAdTimeRef.current = Date.now()
+                console.log(`[success] Реклама ${adType} показана`)
             }
         } catch (error) {
-            console.error(`Ошибка показа рекламы ${adType}:`, error)
+            console.error(`[error] Ошибка ${adType}:`, error)
         }
     }
 
-    const saveData = async (data: string) => {
-        if (!adapter) return
+    const saveData = async () => {
+        if (!isAdapterReady || !adapterRef.current) {
+            console.warn("save (mock)")
+            return
+        }
+
         try {
-            await adapter.save(data)
-            console.log('Данные сохранены')
+            const result = await adapterRef.current.save(textData)
+            console.log("save result = ", result)
+            console.log("[success] Данные сохранены")
         } catch (error) {
-            console.error('Ошибка сохранения:', error)
+            console.error("[error] Ошибка сохранения:", error)
         }
     }
 
     const loadData = async () => {
-        if (!adapter) return null
+        if (!isAdapterReady || !adapterRef.current) {
+            console.warn("load (mock)")
+            return null
+        }
+
         try {
-            const data = await adapter.load()
-            console.log('Данные загружены', data)
+            const data = await adapterRef.current.load()
+            console.log("[success] Данные загружены", data)
+            setTextData(data || '')
             return data
         } catch (error) {
-            console.error('Ошибка загрузки:', error)
+            console.error("[error] Ошибка загрузки:", error)
             return null
         }
     }
-
 
 
     return {
