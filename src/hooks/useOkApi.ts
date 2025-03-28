@@ -5,6 +5,7 @@ import OkAdapter from '../adapter/OkAdapter'
 
 type AdType = "interstitial" | "reward";
 export function useOkApi() {
+    const [textData, setTextData] = useState('');
     const [adapter, setAdapter] = useState<OkAdapter | null>(null)
     const [isReady, setIsReady] = useState(false)
     const lastAdTimeRef = useRef(0)
@@ -82,6 +83,8 @@ export function useOkApi() {
         saveData,
         loadData,
         isReady,
-        adapter
+        adapter,
+        textData,
+        setTextData
     }
 }

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {useOkApi} from "../hooks/useOkApi.ts";
 
 interface PlayerControlsProps {
     saveData: () => void;
@@ -7,8 +8,7 @@ interface PlayerControlsProps {
 }
 
 const PlayerControls: React.FC<PlayerControlsProps> = ({ saveData, loadData, isReady }) => {
-    const [textData, setTextData] = useState('');
-
+    const {textData, setTextData} = useOkApi()
     return (
         <section className="control-card">
             <h2 className="section-title">
