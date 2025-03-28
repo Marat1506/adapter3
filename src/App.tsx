@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const script = document.createElement('script')
-    script.src = '//api.ok.ru/js/fapi5.js'
+    script.src = 'https://api.ok.ru/js/fapi5.js'
     script.defer = true
     document.head.appendChild(script)
 
