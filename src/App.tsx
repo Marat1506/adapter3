@@ -92,31 +92,31 @@ function App() {
     }
   }
 
-  const getPlayerInfo = async (type: string) => {
-    if (!isAdapterReady || !adapterRef.current) {
-      console.warn('Адаптер не готов')
-      return
-    }
-
-    try {
-      switch (type) {
-        case 'id':
-          console.log('ID:', adapterRef.current.getId())
-          break
-        case 'name':
-          console.log('Name:', await adapterRef.current.getName())
-          break
-        case 'auth':
-          console.log('Auth:', await adapterRef.current.isAuth())
-          break
-        case 'avatar':
-          console.log('Avatar:', await adapterRef.current.getAvatar())
-          break
-      }
-    } catch (error) {
-      console.error(`Ошибка получения ${type}:`, error)
-    }
-  }
+  // const getPlayerInfo = async (type: string) => {
+  //   if (!isAdapterReady || !adapterRef.current) {
+  //     console.warn('Адаптер не готов')
+  //     return
+  //   }
+  //
+  //   try {
+  //     switch (type) {
+  //       case 'id':
+  //         console.log('ID:', adapterRef.current.getId())
+  //         break
+  //       case 'name':
+  //         console.log('Name:', await adapterRef.current.getName())
+  //         break
+  //       case 'auth':
+  //         console.log('Auth:', await adapterRef.current.isAuth())
+  //         break
+  //       case 'avatar':
+  //         console.log('Avatar:', await adapterRef.current.getAvatar())
+  //         break
+  //     }
+  //   } catch (error) {
+  //     console.error(`Ошибка получения ${type}:`, error)
+  //   }
+  // }
 
   const handleSocialAction = async (action: string, method: string) => {
     if (!isAdapterReady || !adapterRef.current) {
@@ -196,28 +196,26 @@ function App() {
                     getData
                   </button>
                   <button
-                      onClick={() => getPlayerInfo('id')}
+                      // onClick={() => getPlayerInfo('id')}
                       className="btn btn-secondary"
                       disabled={!isAdapterReady}
                   >
                     getId
                   </button>
                   <button
-                      onClick={() => getPlayerInfo('name')}
                       className="btn btn-secondary"
                       disabled={!isAdapterReady}
                   >
                     getName
                   </button>
                   <button
-                      onClick={() => getPlayerInfo('auth')}
+
                       className="btn btn-secondary"
                       disabled={!isAdapterReady}
                   >
                     isAuth
                   </button>
                   <button
-                      onClick={() => getPlayerInfo('avatar')}
                       className="btn btn-secondary"
                       disabled={!isAdapterReady}
                   >
