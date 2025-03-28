@@ -1,6 +1,6 @@
 // @ts-ignore
 // @ts-nocheck
-import { Empty } from "./interfaces";
+import { Empty } from "./interfaces.ts";
 
 export default class EventsCore {
     private pull: any = {};

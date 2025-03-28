@@ -1,7 +1,7 @@
 // @ts-ignore
 // @ts-nocheck
-import EventsCore from "../EventsCore";
-import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "../interfaces";
+import EventsCore from "./EventsCore.ts";
+import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "./interfaces.ts";
 import Adapter from "./Adapter";
 
 const events: EventsCore = new EventsCore();

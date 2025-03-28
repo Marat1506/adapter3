@@ -1,6 +1,6 @@
 // @ts-ignore
 // @ts-nocheck
-import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "../interfaces";
+import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "./interfaces.ts";
 
 export default class Adapter {
     protected lang: string = "en";
