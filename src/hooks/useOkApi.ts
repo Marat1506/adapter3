@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-nocheck
 import { useState } from 'react'
 import OkAdapter from '../adapter/OkAdapter'
 

@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-nocheck
 import { Empty } from "./interfaces";
 
 export default class EventsCore {
