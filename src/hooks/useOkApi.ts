@@ -44,6 +44,21 @@ export function useOkApi() {
         }
     }
 
+    const getCatalog = async () => {
+        if (!isReady || !adapter) {
+            console.warn(`[warning] Адаптер не готов: Показ ${adType} рекламы`)
+            return
+        }
+
+        try {
+            const result = await adapter.getCatalog()
+            console.log("catalog = ", result)
+
+        }catch (error) {
+            console.log("Ошибка при получении каталога")
+        }
+    }
+
     const saveData = async () => {
         if (!isReady || !adapter) {
             console.warn("save (mock)")
@@ -85,6 +100,7 @@ export function useOkApi() {
         isReady,
         adapter,
         textData,
-        setTextData
+        setTextData,
+        getCatalog
     }
 }

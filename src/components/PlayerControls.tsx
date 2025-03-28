@@ -9,6 +9,7 @@ interface PlayerControlsProps {
 
 const PlayerControls: React.FC<PlayerControlsProps> = ({ saveData, loadData, isReady }) => {
     const {textData, setTextData} = useOkApi()
+
     return (
         <section className="control-card">
             <h2 className="section-title">
