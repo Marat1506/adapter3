@@ -250,70 +250,71 @@ function App() {
                       getStatus
                     </button>
                   </div>
-                  <div className="social-card">
-                    <h3 className="section-title">Подписка на уведомления</h3>
-                    <div className="button-group">
-                      <button id="notifications-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="notifications-act" className="btn btn-secondary">act</button>
-                      <button id="notifications-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
 
-                  <div className="social-card">
-                    <h3 className="section-title">Поставить оценку</h3>
-                    <div className="button-group">
-                      <button id="rateGame-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="rateGame-act" className="btn btn-secondary">act</button>
-                      <button id="rateGame-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
+                </div>
 
-                  <div className="social-card">
-                    <h3 className="section-title">Разместить пост</h3>
-                    <div className="button-group">
-                      <button id="createPost-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="createPost-act" className="btn btn-secondary">act</button>
-                      <button id="createPost-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
-
-                  <div className="social-card">
-                    <h3 className="section-title">Разместить сторис</h3>
-                    <div className="button-group">
-                      <button id="createStory-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="createStory-act" className="btn btn-secondary">act</button>
-                      <button id="createStory-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
-
-                  <div className="social-card">
-                    <h3 className="section-title">Пригласить друга</h3>
-                    <div className="button-group">
-                      <button id="inviteFriend-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="inviteFriend-act" className="btn btn-secondary">act</button>
-                      <button id="inviteFriend-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
-
-                  <div className="social-card">
-                    <h3 className="section-title">Добавить в избранное</h3>
-                    <div className="button-group">
-                      <button id="addToFavorites-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="addToFavorites-act" className="btn btn-secondary">act</button>
-                      <button id="addToFavorites-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
-                  </div>
-
-                  <div className="social-card">
-                    <h3 className="section-title">Добавить на главный экран</h3>
-                    <div className="button-group">
-                      <button id="addToHomeScreen-isAvailable" className="btn btn-secondary">isAvailable</button>
-                      <button id="addToHomeScreen-act" className="btn btn-secondary">act</button>
-                      <button id="addToHomeScreen-getStatus" className="btn btn-secondary">getStatus</button>
-                    </div>
+                <div className="social-card">
+                  <h3 className="section-title">Подписка на уведомления</h3>
+                  <div className="button-group">
+                    <button id="notifications-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="notifications-act" className="btn btn-secondary">act</button>
+                    <button id="notifications-getStatus" className="btn btn-secondary">getStatus</button>
                   </div>
                 </div>
 
+                <div className="social-card">
+                  <h3 className="section-title">Поставить оценку</h3>
+                  <div className="button-group">
+                    <button id="rateGame-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="rateGame-act" className="btn btn-secondary">act</button>
+                    <button id="rateGame-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
+
+                <div className="social-card">
+                  <h3 className="section-title">Разместить пост</h3>
+                  <div className="button-group">
+                    <button id="createPost-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="createPost-act" className="btn btn-secondary">act</button>
+                    <button id="createPost-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
+
+                <div className="social-card">
+                  <h3 className="section-title">Разместить сторис</h3>
+                  <div className="button-group">
+                    <button id="createStory-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="createStory-act" className="btn btn-secondary">act</button>
+                    <button id="createStory-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
+
+                <div className="social-card">
+                  <h3 className="section-title">Пригласить друга</h3>
+                  <div className="button-group">
+                    <button id="inviteFriend-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="inviteFriend-act" className="btn btn-secondary">act</button>
+                    <button id="inviteFriend-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
+
+                <div className="social-card">
+                  <h3 className="section-title">Добавить в избранное</h3>
+                  <div className="button-group">
+                    <button id="addToFavorites-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="addToFavorites-act" className="btn btn-secondary">act</button>
+                    <button id="addToFavorites-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
+
+                <div className="social-card">
+                  <h3 className="section-title">Добавить на главный экран</h3>
+                  <div className="button-group">
+                    <button id="addToHomeScreen-isAvailable" className="btn btn-secondary">isAvailable</button>
+                    <button id="addToHomeScreen-act" className="btn btn-secondary">act</button>
+                    <button id="addToHomeScreen-getStatus" className="btn btn-secondary">getStatus</button>
+                  </div>
+                </div>
                 {/* Остальные социальные карточки аналогично */}
                 {/* ... */}
               </div>
