@@ -1,12 +1,14 @@
 // @ts-ignore
 // @ts-nocheck
-import { useState } from 'react'
+import {useRef, useState} from 'react'
 import OkAdapter from '../adapter/OkAdapter'
 
+type AdType = "interstitial" | "reward";
 export function useOkApi() {
+    const lastAdTimeRef = useRef(0)
     const [adapter, setAdapter] = useState<OkAdapter | null>(null)
     const [isReady, setIsReady] = useState(false)
-
+    const lastAdTimeRef = useRef(0)
     const initAdapter = async () => {
         const newAdapter = new OkAdapter()
         try {
@@ -20,7 +22,7 @@ export function useOkApi() {
     }
 
     const showAd = async (adType: AdType) => {
-        if (!isAdapterReady || !adapterRef.current) {
+        if (!isReady || !adapterRef.current) {
             console.warn(`[warning] Адаптер не готов: Показ ${adType} рекламы`)
             return
         }
@@ -80,6 +82,7 @@ export function useOkApi() {
         showAd,
         saveData,
         loadData,
-        isReady
+        isReady,
+        adapter
     }
 }

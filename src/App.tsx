@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import OkAdapter from './adapter/OkAdapter'
+// import OkAdapter from './adapter/OkAdapter'
 import {useOkApi} from "./hooks/useOkApi.ts";
 
-// type AdType = "interstitial" | "reward";
+
 
 function App() {
-  const [isAdapterReady, setIsAdapterReady] = useState(false)
-  const [textData, setTextData] = useState('')
-  const adapterRef = useRef<OkAdapter | null>(null)
-  const {loadData, saveData, showAd} = useOkApi()
 
+  const [textData, setTextData] = useState('')
+  // const adapterRef = useRef<OkAdapter | null>(null)
+  const {initAdapter, saveData, loadData, showAd, isReady} = useOkApi()
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -18,17 +17,7 @@ function App() {
     script.defer = true
     document.head.appendChild(script)
 
-    const initAdapter = async () => {
-      const adapter = new OkAdapter()
-      try {
-        await adapter.init()
-        adapterRef.current = adapter
-        setIsAdapterReady(true)
-        console.log('[success] Адаптер успешно инициализирован')
-      } catch (error) {
-        console.error('[error] Ошибка инициализации адаптера:', error)
-      }
-    }
+
 
     initAdapter()
 
@@ -38,13 +27,17 @@ function App() {
   }, [])
 
 
+
+
+
+
   return (
       <div className="scroll-container">
         <div className="app-container">
           <header className="app-header">
             <h1>Документация</h1>
             <div className="status-indicator">
-              {isAdapterReady ? 'OK API Ready' : 'OK API Loading...'}
+              {isReady ? 'OK API Ready' : 'OK API Loading...'}
             </div>
           </header>
 
@@ -59,14 +52,14 @@ function App() {
                 <button
                     onClick={() => showAd('interstitial')}
                     className="btn btn-primary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   show Interstitial
                 </button>
                 <button
                     onClick={() => showAd('reward')}
                     className="btn btn-secondary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   show Reward
                 </button>
@@ -84,46 +77,46 @@ function App() {
                   value={textData}
                   onChange={(e) => setTextData(e.target.value)}
                   placeholder="Введите данные для saveData..."
-                  disabled={!isAdapterReady}
+                  disabled={!isReady}
               />
                 <div className="button-group">
                   <button
                       onClick={saveData}
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     saveData
                   </button>
                   <button
                       onClick={loadData}
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     getData
                   </button>
                   <button
                       // onClick={() => getPlayerInfo('id')}
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     getId
                   </button>
                   <button
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     getName
                   </button>
                   <button
 
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     isAuth
                   </button>
                   <button
                       className="btn btn-secondary"
-                      disabled={!isAdapterReady}
+                      disabled={!isReady}
                   >
                     getAvatar
                   </button>
@@ -140,25 +133,25 @@ function App() {
               <div className="button-group">
                 <button
                     className="btn btn-primary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   getPurchase
                 </button>
                 <button
                     className="btn btn-primary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   getCatalog
                 </button>
                 <button
                     className="btn btn-primary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   consumePurchase
                 </button>
                 <button
                     className="btn btn-primary"
-                    disabled={!isAdapterReady}
+                    disabled={!isReady}
                 >
                   buy
                 </button>
@@ -178,19 +171,19 @@ function App() {
                   <div className="button-group">
                     <button
                         className="btn btn-secondary"
-                        disabled={!isAdapterReady}
+                        disabled={!isReady}
                     >
                       isAvailable
                     </button>
                     <button
                         className="btn btn-secondary"
-                        disabled={!isAdapterReady}
+                        disabled={!isReady}
                     >
                       act
                     </button>
                     <button
                         className="btn btn-secondary"
-                        disabled={!isAdapterReady}
+                        disabled={!isReady}
                     >
                       getStatus
                     </button>
