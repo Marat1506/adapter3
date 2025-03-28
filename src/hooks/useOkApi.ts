@@ -57,30 +57,13 @@ export function useOkApi() {
         }
     }
 
-    const getPlayerInfo = async (type: 'id' | 'name' | 'avatar' | 'auth') => {
-        if (!adapter) return
 
-        try {
-            switch (type) {
-                case 'id':
-                    console.log('ID пользователя:', adapter.getId())
-                    break
-                case 'name':
-                    console.log('Имя пользователя:', await adapter.getName())
-                    break
-                // Добавьте другие случаи по аналогии
-            }
-        } catch (error) {
-            console.error(`Ошибка получения ${type}:`, error)
-        }
-    }
 
     return {
         initAdapter,
         showAd,
         saveData,
         loadData,
-        getPlayerInfo,
         isReady
     }
 }
