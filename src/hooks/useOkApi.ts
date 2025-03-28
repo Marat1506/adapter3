@@ -21,19 +21,19 @@ export function useOkApi() {
     }
 
     const showAd = async (adType: AdType) => {
-        if (!isReady || !adapterRef.current) {
+        if (!isReady || !adapter) {
             console.warn(`[warning] Адаптер не готов: Показ ${adType} рекламы`)
             return
         }
 
         try {
             if (adType === 'reward') {
-                const watched = await adapterRef.current.showRewardedAds()
+                const watched = await adapter.showRewardedAds()
                 lastAdTimeRef.current = Date.now()
                 console.log("watched = ", watched)
                 console.log(watched ? '[success] Награда получена!' : '[warning] Реклама закрыта до завершения')
             } else {
-                const full = await adapterRef.current.showFullscreenAds()
+                const full = await adapter.showFullscreenAds()
                 console.log("showFullscreenAds = ", full)
                 lastAdTimeRef.current = Date.now()
                 console.log(`[success] Реклама ${adType} показана`)
@@ -44,13 +44,13 @@ export function useOkApi() {
     }
 
     const saveData = async () => {
-        if (!isAdapterReady || !adapterRef.current) {
+        if (!isAdapterReady || !adapter) {
             console.warn("save (mock)")
             return
         }
 
         try {
-            const result = await adapterRef.current.save(textData)
+            const result = await adapter.save(textData)
             console.log("save result = ", result)
             console.log("[success] Данные сохранены")
         } catch (error) {
@@ -59,13 +59,13 @@ export function useOkApi() {
     }
 
     const loadData = async () => {
-        if (!isAdapterReady || !adapterRef.current) {
+        if (!isAdapterReady || !adapter) {
             console.warn("load (mock)")
             return null
         }
 
         try {
-            const data = await adapterRef.current.load()
+            const data = await adapter.load()
             console.log("[success] Данные загружены", data)
             setTextData(data || '')
             return data
