@@ -44,14 +44,14 @@ export function useOkApi() {
         }
     }
 
-    const getCatalog = async () => {
+    const getCatalog =  () => {
         if (!isReady || !adapter) {
             console.warn(`[warning] Адаптер не готов: Показ ${adType} рекламы`)
             return
         }
 
         try {
-            const result = await adapter.getCatalog()
+            const result = adapter.getCatalog()
             console.log("catalog = ", result)
 
         }catch (error) {
