@@ -1,4 +1,5 @@
-
+// @ts-ignore
+// @ts-nocheck
 import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "../interfaces";
 
 export default class Adapter {

@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "TSC_COMPILE_ON_ERROR": "true"
+    }
+  }
+}

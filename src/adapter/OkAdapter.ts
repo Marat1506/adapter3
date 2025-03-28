@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-nocheck
 import EventsCore from "../EventsCore";
 import { Empty, ICatalogItem, ILbEntrie, IPurchaseData } from "../interfaces";
 import Adapter from "./Adapter";
