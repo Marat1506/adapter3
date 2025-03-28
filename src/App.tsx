@@ -30,9 +30,9 @@ function App() {
 
     initAdapter()
 
-    // return () => {
-    //   document.head.removeChild(script)
-    // }
+    return () => {
+      document.head.removeChild(script)
+    }
   }, [])
 
   const showAd = async (adType: AdType) => {
